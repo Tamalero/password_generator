@@ -18,19 +18,19 @@ pipeline{
 
          stage('Testing'){
             steps{
-            echo 'This is testing'
+            sh 'firebase deploy -P testing-replica-7f330  --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
         stage('Staging'){
             steps{
-            sh 'firebase deploy -P Testing-replica  --token "$FIREBASE_DEPLOY_TOKEN"'
+            sh 'firebase deploy -P staging-replica-b44c4  --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
 
         stage('Production'){
             steps{
-            sh 'firebase deploy -P Production-replica  --token "$FIREBASE_DEPLOY_TOKEN"'
+            sh 'firebase deploy -P production-replica-d1e22  --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         }
     }
